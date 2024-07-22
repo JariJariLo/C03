@@ -6,7 +6,7 @@
 /*   By: crjarill <crjarill@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/17 16:09:35 by crjarill          #+#    #+#             */
-/*   Updated: 2024/07/22 14:55:24 by crjarill         ###   ########.fr       */
+/*   Updated: 2024/07/22 15:07:58 by crjarill         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,21 @@
 #include <string.h>
 #include <stdio.h>
 
-char	*ft_strcat(char *dest, char *src)
+char	*strncat(char *dest, const char *src, size_t n)
 {
-	int		i;
-	int		j;
+	size_t	dest_len;
+	size_t	i;
+	size_t	j;
 
-	i = 0;
-	j = 0;
 	while (dest[i] != '\0')
 	{
 		i++;
+		dest_len = i;
 	}
-	while (src[j] != '\0')
+	while (j < n && src[j] != '\0')
 	{
-		dest[i] = src[j];
-		i++;
-		j++;
+		dest[dest_len + j] = src[j];
+		dest[dest_len + j] = '\0';
 	}
-	return (*dest);
+	return (dest);
 }
